@@ -333,7 +333,7 @@ function descriptor()
     version = "0.11.1",
     author = "exebetche",
     url = 'http://www.opensubtitles.org/',
-    shortdesc = "VLsub";
+    shortdesc = "&VLsub";
     description = options.translation.int_descr,
     capabilities = {"menu", "input-listener" }
   }
@@ -1239,7 +1239,9 @@ openSub = {
         file.name = filePath
       end
     -- Corrections
-
+      if not file.name then
+        file.name = item:name()
+      end
       file.hasInput = true;
       file.cleanName = string.gsub(
         file.name,
